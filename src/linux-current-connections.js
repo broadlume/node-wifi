@@ -19,7 +19,7 @@ function getCurrentConnection(config, callback) {
   }
 
   let file = 'nmcli';
-  if (ap.sudo) {
+  if (config.sudo) {
     args.unshift(file);
     file = 'sudo';
   }
