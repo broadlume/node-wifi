@@ -1,7 +1,7 @@
 var execFile = require('child_process').execFile;
 var env = require('./env');
 
-function disconnect(config, callback) {
+function disconnect(config, ap, callback) {
   var args = [];
   args.push('device');
   args.push('disconnect');

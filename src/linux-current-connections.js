@@ -2,7 +2,7 @@ var execFile = require('child_process').execFile;
 var networkUtils = require('./utils/network-utils');
 var env = require('./env');
 
-function getCurrentConnection(config, callback) {
+function getCurrentConnection(config, ap, callback) {
   var args = [];
   args.push('--terse');
   args.push('--fields');
@@ -19,7 +19,7 @@ function getCurrentConnection(config, callback) {
   }
 
   let file = 'nmcli';
-  if (config.sudo) {
+  if (ap.sudo) {
     args.unshift(file);
     file = 'sudo';
   }
