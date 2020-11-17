@@ -63,12 +63,12 @@ function getCurrentConnection(config, ap, callback) {
 }
 
 module.exports = function(config) {
-  return function(callback) {
+  return function(ap, callback) {
     if (callback) {
-      getCurrentConnection(config, callback);
+      getCurrentConnection(config, ap, callback);
     } else {
       return new Promise(function(resolve, reject) {
-        getCurrentConnection(config, function(err, connections) {
+        getCurrentConnection(config, ap, function(err, connections) {
           if (err) {
             reject(err);
           } else {

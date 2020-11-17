@@ -22,12 +22,12 @@ function disconnect(config, ap, callback) {
 }
 
 module.exports = function(config) {
-  return function(callback) {
+  return function(ap, callback) {
     if (callback) {
-      disconnect(config, callback);
+      disconnect(config, ap, callback);
     } else {
       return new Promise(function(resolve, reject) {
-        disconnect(config, function(err) {
+        disconnect(config, ap, function(err) {
           if (err) {
             reject(err);
           } else {
