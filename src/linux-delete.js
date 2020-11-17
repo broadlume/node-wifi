@@ -9,7 +9,13 @@ function deleteConnection(config, ap, callback) {
 
   args.push(ap.ssid);
 
-  execFile('nmcli', args, env, function(err) {
+  let file = 'nmcli';
+  if (ap.sudo) {
+    args.unshift(file);
+    file = 'sudo';
+  }
+
+  execFile(file, args, env, function(err) {
     callback && callback(err);
   });
 }

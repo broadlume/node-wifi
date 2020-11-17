@@ -18,7 +18,13 @@ function getCurrentConnection(config, callback) {
     args.push(config.iface);
   }
 
-  execFile('nmcli', args, { env }, function(err, scanResults) {
+  let file = 'nmcli';
+  if (ap.sudo) {
+    args.unshift(file);
+    file = 'sudo';
+  }
+
+  execFile(file, args, { env }, function(err, scanResults) {
     if (err) {
       callback && callback(err);
       return;
