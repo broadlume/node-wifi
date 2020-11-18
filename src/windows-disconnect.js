@@ -13,7 +13,7 @@ function disconnect(config, callback) {
 }
 
 module.exports = function(config) {
-  return function(callback) {
+  return function(ap,callback) {
     if (callback) {
       disconnect(config, callback);
     } else {

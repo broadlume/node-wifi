@@ -71,7 +71,7 @@ function getCurrentConnection(config, callback) {
 }
 
 module.exports = function(config) {
-  return function(callback) {
+  return function(ap,callback) {
     if (callback) {
       getCurrentConnection(config, callback);
     } else {
